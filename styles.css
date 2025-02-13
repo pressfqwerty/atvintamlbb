@@ -1,0 +1,244 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-image: url('images/background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    user-select: none;
+    height: 100vh;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 2.5px solid #fff; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.container .btn {
+    width: 200px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.container .btn-tiktok {
+    background-color: #000000;
+}
+
+.container .btn-tiktok:hover {
+    background-color: #222222;
+}
+
+.container .btn-tgchannel {
+    background-color: #007bff;
+}
+
+.container .btn-tgchannel:hover {
+    background-color: #0056b3;
+}
+.container .btn-chat {
+    background-color: #0752a1;
+}
+
+.container .btn-chat:hover {
+    background-color: #064288;
+}
+
+.container .btn-youtube {
+    background-color: #dc3545;
+}
+
+.container .btn-youtube:hover {
+    background-color: #a52a36;
+}
+
+.container .btn-twitch {
+    background-color: #6441a5;
+}
+
+.container .btn-twitch:hover {
+    background-color: #503385;
+}
+
+.container .btn-operation {
+    background-color: #007474;
+}
+
+.container .btn-operation:hover {
+    background-color: #005e5e;
+}
+
+.btn-donation {
+    background-color: #ff9900;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: block;
+    width: 250px;
+    margin: 20px auto 0;
+}
+
+.btn-container .btn-donation:hover {
+    background-color: #e68a00;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    text-align: center;
+    width: 140px;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.description {
+    font-size: 1rem;
+    color: #ffffff; 
+    margin-top: 5px;
+    text-align: center;
+    font-weight: bold
+}
+
+.avatar img {
+    width: 150px; 
+    height: 150px;
+    object-fit: cover;
+    border: 2px solid #ccc;
+}
+
+.container-box {
+    width: 90%;
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    padding: 20px;
+    min-height: 100px
+}
+
+.container .btn:hover {
+    filter: brightness(85%);
+    transition: 0.3s ease-in-out;
+}
+
+.accordion { 
+    width: 100%; 
+    max-width: 250px; 
+    margin: 0 auto 20px; 
+} 
+
+.accordion-button {
+    background: rgba(0, 0, 0, 0.7);
+    background-color: #701b9a;
+    font-size: 18px;
+}
+
+.accordion-item {
+    background: rgba(0, 0, 0, 0.7) !important;
+    border: none;
+}
+
+.accordion-button {
+    background: #701b9a !important;
+    color: white !important;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.accordion-button:not(.collapsed) {
+    background: #701b9a !important;
+    color: white !important;
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    box-shadow: none !important;
+}
+
+.accordion-body {
+    background: rgba(0, 0, 0, 0.7) !important;
+    border-radius: 5px;
+    color: white;
+}
+
+.select-number, .select-number2, .select-number3, .select-name {
+    user-select: all;
+}
+
+.help {
+    color: white;
+    font-size: 0.7rem;
+}
+
+.ru {
+    color: red;
+    font-size: 1rem;
+}
+
+/* Снегопад */
+
+.snowflakes{
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.snowflake{
+    position: absolute;
+    top: -10px;
+    font-size: 16px;
+    color: white;
+    animation: fall 10s linear infinite;
+}
+@keyframes fall {
+    0% {transform: translateY(-100px)}
+    100% {transform: translateY(95vh)}
+
+}
