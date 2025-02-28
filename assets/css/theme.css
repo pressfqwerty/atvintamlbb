@@ -13,6 +13,13 @@ body {
   min-height: 100%;
 }
 
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: fixed;
+}
+
 :root {
   --bs-dark-rgb: 24, 26, 28;
 }
@@ -197,8 +204,7 @@ img {
 @media (min-width: 992px) {
   #cursor {
     z-index: 999;
-    position: absolute;
-    -webkit-transform: translate(-50%, -50%);
+    position: fixed;  /* Меняем на fixed */
     transform: translate(-50%, -50%);
     background: white;
     width: 10px;
@@ -206,11 +212,10 @@ img {
     border-radius: 50%;
     mix-blend-mode: difference;
     pointer-events: none;
-    -webkit-transition: linear 0.08s;
-    transition: linear 0.08s;
+    transition: transform 0.08s linear;
   }
+
   #cursor.scale-cursor {
-    -webkit-transform: translate(-50%, -50%) scale(5);
     transform: translate(-50%, -50%) scale(5);
     opacity: 0.15;
   }
@@ -2107,3 +2112,14 @@ body.loaded:after {
   background: #333;
 }
 
+
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Частицы остаются внизу всех элементов */
+  pointer-events: none; /* Чтобы частицы не перекрывали другие элементы */
+  mix-blend-mode: multiply; /* Эффект смешивания с фоном */
+}
