@@ -16,25 +16,35 @@ if ($body.attr("data-preloader") === "true") {
 /*===============================================
   2. Cursor
 ===============================================*/
-var customCursor = document.getElementById("cursor");
+document.addEventListener("DOMContentLoaded", function () {
+  const customCursor = document.getElementById("cursor");
+  if (!customCursor) return;
 
-if (customCursor) {
-  document.addEventListener('mousemove', function(e) {
-    customCursor.style.left = e.pageX + 'px';
-    customCursor.style.top = e.pageY + 'px';
+  let mouseX = 0, mouseY = 0, isMoving = false;
+
+  document.addEventListener("mousemove", (e) => {
+    // Используем координаты относительно окна
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (!isMoving) {
+      isMoving = true;
+      requestAnimationFrame(moveCursor);
+    }
   });
 
-  var mouseElms = document.querySelectorAll("a, button, input, textarea, .cursor-link");
+  function moveCursor() {
+    customCursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+    isMoving = false;
+  }
 
-  mouseElms.forEach(function(mouseElm) {
-    mouseElm.addEventListener("mouseenter", function() {
-      customCursor.classList.add("scale-cursor");
-    });
-    mouseElm.addEventListener("mouseleave", function() {
-      customCursor.classList.remove("scale-cursor");
-    });
+  const mouseElms = document.querySelectorAll("a, button, input, textarea, .cursor-link");
+  mouseElms.forEach((elm) => {
+    elm.addEventListener("mouseenter", () => customCursor.classList.add("scale-cursor"));
+    elm.addEventListener("mouseleave", () => customCursor.classList.remove("scale-cursor"));
   });
-}
+});
+
+
 
 /*===============================================
   3. Header Nav Menu
@@ -196,3 +206,115 @@ function copyText(elementId) {
       console.error('Ошибка при копировании текста: ', err);
   });
 }
+
+
+particlesJS("particles-js", {
+  "particles": {
+    "number": {
+      "value": 75,
+      "density": {
+        "enable": true,
+        "value_area": 800
+      }
+    },
+    "color": {
+      "value": "#ffffff"
+    },
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0,
+        "color": "#000000"
+      },
+      "polygon": {
+        "nb_sides": 5
+      },
+      "image": {
+        "src": "img/github.svg",
+        "width": 100,
+        "height": 100
+      }
+    },
+    "opacity": {
+      "value": 0.5,
+      "random": false,
+      "anim": {
+        "enable": false,
+        "speed": 1,
+        "opacity_min": 0.1,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 5,  // Размер частиц
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 40,
+        "size_min": 0.1,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 175,
+      "color": "#ffffff",
+      "opacity": 0.4,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 3,
+      "direction": "none",
+      "random": false,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": false,
+        "rotateX": 600,
+        "rotateY": 1200
+      }
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode": "grab"
+      },
+      "onclick": {
+        "enable": true,
+        "mode": "push"
+      },
+      "resize": true
+    },
+    "modes": {
+      "grab": {
+        "distance": 40,
+        "line_linked": {
+          "opacity": 1
+        }
+      },
+      "bubble": {
+        "distance": 400,
+        "size": 40,
+        "duration": 2,
+        "opacity": 8,
+        "speed": 3
+      },
+      "repulse": {
+        "distance": 200,
+        "duration": 0.4
+      },
+      "push": {
+        "particles_nb": 4
+      },
+      "remove": {
+        "particles_nb": 2
+      }
+    }
+  },
+  "retina_detect": true
+});
