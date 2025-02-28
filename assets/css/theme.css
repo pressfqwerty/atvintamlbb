@@ -2119,7 +2119,7 @@ body.loaded:after {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -1; /* Частицы остаются внизу всех элементов */
-  pointer-events: none; /* Чтобы частицы не перекрывали другие элементы */
-  mix-blend-mode: multiply; /* Эффект смешивания с фоном */
+  z-index: -1;
+  pointer-events: none;
+  mix-blend-mode: multiply;
 }
